@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static junit.framework.TestCase.fail;
+
 
 public class FelineTest {
 
@@ -21,7 +21,7 @@ public class FelineTest {
     public void shouldGetFamilyNegativeTest() {
         Feline feline = new Feline();
         String actual = feline.getFamily();
-        String expected = "Кошачьии";
+        String expected = "Невалидное значение";
         Assert.assertNotEquals(expected, actual);
     }
 
@@ -57,14 +57,19 @@ public class FelineTest {
         Assert.assertNotEquals(expected, actual);
     }
 
+    @Test(expected = Exception.class)
+    public void exceptionGetFoodTest() throws Exception {
+        Animal animal = new Animal();
+        List<String> actual = animal.getFood("Хищника");
+        Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", actual);
+    }
+
     @Test
-    public void GetFoodTest() throws Exception {{
-        try {
-            Animal animal = new Animal();
-            animal.getFood("Хищникк");
-            fail();
-        } catch (Exception exception) {
-            System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
-        }
-    }}}
+    public void exceptionGetFoodOneTest() throws Exception {
+        Animal animal = new Animal();
+        String expected = "Неизвестный вид животного, используйте значение Травоядное или Хищник";
+        Exception actual = Assert.assertThrows(Exception.class, ()->animal.getFood("Невалидное значение"));
+        Assert.assertEquals(actual.getMessage(), expected);
+    }
+}
 
