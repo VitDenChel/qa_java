@@ -25,12 +25,7 @@
             <!--Тег scope указывает на область видимости зависимости: она видна только тестовым классам в директории src/test/java-->
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
-        </dependency>
-        <dependency>
+               <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>5.23.2</version>
