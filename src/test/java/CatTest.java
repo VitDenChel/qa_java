@@ -19,7 +19,6 @@ public class CatTest {
 
     public void getFoodCatTest() throws Exception {
         Cat cat = new Cat(feline);
-        // List<String> actual = feline.getFood("Хищник");
         List<String> actual = feline.eatMeat();
         List<String> expected = cat.getFood();
         Assert.assertEquals(expected, actual);
@@ -33,9 +32,4 @@ public class CatTest {
         String expected =  "Мяу";
         Assert.assertEquals(expected, actual);
     }
-
-
-
-
-
 }
